@@ -41,7 +41,7 @@ jobs:
           uses: docker/build-push-action@v2 
           with:
             push: true
-            tags: daniil333/foodgram
+            tags: ${{ secrets.DOCKER_USERNAME }}/foodgram-backend
             file: backend/Dockerfile
 
 
@@ -63,7 +63,7 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          tags: daniil333/foodgram
+          tags: ${{ secrets.DOCKER_USERNAME }}/foodgram-frontend
           file: frontend/Dockerfile    
 
   deploy:
