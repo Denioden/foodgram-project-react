@@ -3,13 +3,6 @@ version: '3.8'
 services:
   db:
     image: postgres:13.0-alpine
-    volumes:
-      - /var/lib/postgresql/data/
-    env_file:
-      - ./.env
-
-  backend:
-    image: daniil333/foodgram-backend
     environment:
       - DB_ENGINE=django.db.backends.postgresql
       - DB_NAME=postgres
@@ -17,6 +10,13 @@ services:
       - POSTGRES_PASSWORD=postgres
       - DB_HOST=db
       - DB_PORT=5432 
+    volumes:
+      - /var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
+  backend:
+    image: daniil333/foodgram-backend
     restart: always
     volumes:
       - static_value:/app/static/
