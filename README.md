@@ -1,4 +1,17 @@
+IP сервера: 158.160.102.70
+
+email: deni@yandex.ru
+Password: deni
+
 # Foodgram «Продуктовый помощник».
+
+# Технологии
+* Python3.7 
+* Django
+* PostgreSQL
+* Docker
+* Docker-compase
+* nginx
 
 ## Установка
 
@@ -48,7 +61,7 @@ $ python3 -m venv venv
 (venv) $ python3 manage.py migration
 ```
 
-### Создаём базу данных:
+### Создаём базу данных для локального применения:
 
 - Вызовите утилиту psql.
 ```
@@ -129,3 +142,74 @@ postgres=#\q
     npm run build
     npm start
     ```
+
+## Пример API запроса с сервера (просмотр рецепта):
+
+#### Request
+    http://158.160.102.70/api/recipes/4
+
+#### Response
+    ```
+    {
+        "id": 4,
+        "tags": [
+            {
+                "id": 2,
+                "name": "Обед",
+                "color": "#FFD700",
+                "slug": "obed"
+            },
+            {
+                "id": 3,
+                "name": "Ужин",
+                "color": "#8B0000",
+                "slug": "uzin"
+            }
+        ],
+        "author": {
+            "id": 1,
+            "email": "deni@yandex.ru",
+            "username": "deni",
+            "first_name": "deni",
+            "last_name": "deni",
+            "is_subscribed": false
+        },
+        "ingredients": [
+            {
+                "id": 4,
+                "name": "вода",
+                "measurement_unit": "мл",
+                "amount": 500
+            },
+            {
+                "id": 14,
+                "name": "говядина",
+                "measurement_unit": "гр",
+                "amount": 1000
+            },
+            {
+                "id": 15,
+                "name": "лук репчатый",
+                "measurement_unit": "гр",
+                "amount": 200
+            },
+            {
+                "id": 9,
+                "name": "масло растительное",
+                "measurement_unit": "гр",
+                "amount": 100
+            }
+        ],
+        "is_favorited": false,
+        "is_in_shopping_cart": false,
+        "name": "Говядина",
+        "image": "http://158.160.102.70/media/recipes/8b8105da-19ca-4600-95e5-b1c05a126853.jpg",
+        "text": "Говядина",
+        "cooking_time": 10
+    }
+    ```
+
+### Контакты для связи:
+* ФИО: Откидышев Даниил Вячеславович
+* email: deni.oden@yandex.ru
+
