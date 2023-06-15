@@ -79,6 +79,10 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          sudo docker-compase stop
+          sudo docker-compose rm backend
+          sudo docker-compose rm frontend
+
           sudo rm -f .env        
           sudo touch .env
           
@@ -89,8 +93,6 @@ jobs:
           echo DB_HOST=${{ secrets.DB_HOST }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           
-          sudo docker-compase stop
-          sudo docker-compose rm backend
-          sudo docker-compose rm frontend
+          
           
           sudo docker-compose up -d --build
