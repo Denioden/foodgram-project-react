@@ -10,6 +10,13 @@ services:
 
   backend:
     image: daniil333/foodgram-backend
+    environment:
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432 
     restart: always
     volumes:
       - static_value:/app/static/
