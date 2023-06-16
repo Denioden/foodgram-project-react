@@ -20,7 +20,6 @@ class TagAdmin(admin.ModelAdmin):
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ('name', 'id', 'author',)
     list_display_links = ('name',)
-    search_fields = ('name', 'author__username', 'tags__name',)
     list_filter = ('author', 'name', 'tags',)
 
 
